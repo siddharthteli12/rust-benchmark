@@ -1,0 +1,5 @@
+[workspace]
+
+members = [
+    "bufreader_vs_read_string",
+]
