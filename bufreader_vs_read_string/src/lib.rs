@@ -3,6 +3,9 @@ use std::{
     io::{BufRead, BufReader, Error},
 };
 
+#[cfg(test)]
+mod tests;
+
 // Find pattern in file using buffer read with read line.
 pub fn buffer(pattern: String, path: String) -> Result<Vec<(usize, String)>, Error> {
     let reader = BufReader::new(File::open(path)?);
