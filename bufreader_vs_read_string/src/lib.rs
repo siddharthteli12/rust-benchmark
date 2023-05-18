@@ -6,12 +6,12 @@ use std::{
 // Find pattern in file using buffer read with read line.
 pub fn buffer(pattern: String, path: String) -> Result<Vec<(usize, String)>, Error> {
     let reader = BufReader::new(File::open(path)?);
-    let content = String::new();
     let mut result_vec: Vec<(usize, String)> = vec![];
 
     for (counter, line) in reader.lines().enumerate() {
-        if content.contains(&pattern) {
-            result_vec.push((counter, line?.to_string()));
+        let line = line?;
+        if line.contains(&pattern) {
+            result_vec.push((counter, line));
         }
     }
     Ok(result_vec)
